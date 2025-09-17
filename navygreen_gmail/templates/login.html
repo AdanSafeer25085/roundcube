@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="/includes/links.html" />
+    <link rel="stylesheet" type="text/css" href="/skins/navygreen_gmail/styles/style.css" />
+</head>
+<body class="login-form">
+    <div class="login-box">
+        <h1><roundcube:object name="productname" /></h1>
+
+        <roundcube:form name="form" method="post" action="./">
+            <roundcube:object name="loginform" form="form" />
+
+            <div class="form-group">
+                <label for="rcmloginuser"><roundcube:label name="username" /></label>
+                <roundcube:object name="loginuser" id="rcmloginuser" size="40" />
+            </div>
+
+            <div class="form-group">
+                <label for="rcmloginpwd"><roundcube:label name="password" /></label>
+                <roundcube:object name="loginpassword" id="rcmloginpwd" size="40" />
+            </div>
+
+            <roundcube:container name="loginfooter" id="login-footer" />
+
+            <button type="submit" name="login">
+                <roundcube:label name="login" />
+            </button>
+        </roundcube:form>
+
+        <roundcube:object name="message" id="message" />
+
+        <roundcube:if condition="config:support_url" />
+            <div class="support-link">
+                <a href="<roundcube:var name='config:support_url' />" target="_blank">
+                    <roundcube:label name="support" />
+                </a>
+            </div>
+        <roundcube:endif />
+    </div>
+
+    <roundcube:object name="preloader" />
+</body>
+</html>

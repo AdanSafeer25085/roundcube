@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="addressbook-view gmail-contacts">
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button class="hamburger-menu" id="menu-toggle">☰</button>
+                <h1 class="app-title">Contacts</h1>
+            </div>
+            <div class="header-center">
+                <roundcube:object name="searchform" id="quicksearchbar" />
+            </div>
+            <div class="header-right">
+                <roundcube:object name="username" />
+                <roundcube:object name="logoutlink" />
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <roundcube:object name="addressbookslist" id="directorylist" class="treelist" />
+                </div>
+            </aside>
+
+            <!-- Contact List -->
+            <div class="contact-list-panel">
+                <div class="panel-toolbar">
+                    <roundcube:object name="toolbar" id="contactstoolbar" />
+                </div>
+
+                <div class="contacts-list">
+                    <roundcube:object name="addresslist"
+                        id="contacts-table"
+                        class="records-table"
+                        cellspacing="0" />
+                </div>
+
+                <div class="list-footer">
+                    <roundcube:object name="recordscount" />
+                </div>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="contact-details-panel">
+                <roundcube:if condition="env:contact">
+                    <div class="contact-info">
+                        <roundcube:object name="contacthead" />
+                        <roundcube:object name="contactdetails" />
+                    </div>
+                </roundcube:if>
+            </div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

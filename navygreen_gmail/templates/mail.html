@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="/includes/links.html" />
+    <link rel="stylesheet" type="text/css" href="/skins/navygreen_gmail/styles/style.css" />
+</head>
+<body>
+    <div id="layout">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="logo"><roundcube:object name="productname" /></a>
+
+            <div class="header-right">
+                <roundcube:object name="username" />
+                <roundcube:button command="logout" label="logout" class="logout-button" />
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <roundcube:button command="compose" label="compose" class="button compose" />
+            <roundcube:button command="reply" label="reply" class="button reply" />
+            <roundcube:button command="reply-all" label="replyall" class="button reply-all" />
+            <roundcube:button command="forward" label="forward" class="button forward" />
+            <roundcube:button command="delete" label="delete" class="button delete" />
+            <roundcube:button command="mark" label="markmessage" class="button mark" />
+            <roundcube:button command="refresh" label="refresh" class="button refresh" />
+
+            <div class="toolbar-right">
+                <roundcube:object name="searchform" id="quicksearchbox" />
+            </div>
+        </div>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <roundcube:object name="mailboxlist" id="mailboxlist" class="folderlist" />
+
+                <div class="quota-display">
+                    <roundcube:object name="quotadisplay" />
+                </div>
+            </div>
+
+            <!-- Content area -->
+            <div class="content">
+                <!-- Message List -->
+                <div class="messagelist" id="messagelist">
+                    <roundcube:object name="messages" id="messagelist" />
+                </div>
+
+                <!-- Message Preview -->
+                <div class="messageview" id="messageview">
+                    <roundcube:object name="messagecontentframe" id="messagecontframe" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Status bar -->
+        <div class="statusbar">
+            <roundcube:object name="message" id="message" />
+            <roundcube:object name="mailboxname" />
+        </div>
+    </div>
+
+    <roundcube:object name="preloader" />
+</body>
+</html>

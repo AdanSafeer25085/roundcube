@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="login-page outlook-theme">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-section">
+                    <h1 class="brand-title">Roundcube</h1>
+                    <p class="brand-subtitle">Outlook Style</p>
+                </div>
+            </div>
+
+            <div class="login-form-wrapper">
+                <roundcube:object name="loginform"
+                    form-name="form"
+                    username-label="true"
+                    password-label="true" />
+
+                <div class="login-footer">
+                    <roundcube:if condition="!env:hideloginform">
+                        <div class="login-options">
+                            <label class="remember-me">
+                                <input type="checkbox" name="_remember" value="1" />
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+                    </roundcube:if>
+                </div>
+            </div>
+
+            <roundcube:if condition="env:message">
+                <div class="alert-message">
+                    <roundcube:object name="message" />
+                </div>
+            </roundcube:if>
+        </div>
+
+        <div class="login-background">
+            <div class="background-pattern"></div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

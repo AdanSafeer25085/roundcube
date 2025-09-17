@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="/includes/links.html" />
+    <link rel="stylesheet" type="text/css" href="/skins/navygreen_gmail/styles/style.css" />
+</head>
+<body>
+    <div id="layout">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="logo"><roundcube:object name="productname" /></a>
+
+            <div class="header-right">
+                <roundcube:object name="username" />
+                <roundcube:button command="logout" label="logout" class="logout-button" />
+            </div>
+        </div>
+
+        <div class="compose-form">
+            <roundcube:form name="form" method="post">
+                <div class="compose-headers">
+                    <div class="form-group">
+                        <label for="compose-from"><roundcube:label name="from" /></label>
+                        <roundcube:object name="composeheaders" part="from" form="form" id="compose-from" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="compose-to"><roundcube:label name="to" /></label>
+                        <roundcube:object name="composeheaders" part="to" form="form" id="compose-to" tabindex="1" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="compose-cc"><roundcube:label name="cc" /></label>
+                        <roundcube:object name="composeheaders" part="cc" form="form" id="compose-cc" tabindex="2" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="compose-bcc"><roundcube:label name="bcc" /></label>
+                        <roundcube:object name="composeheaders" part="bcc" form="form" id="compose-bcc" tabindex="3" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="compose-subject"><roundcube:label name="subject" /></label>
+                        <roundcube:object name="composeheaders" part="subject" form="form" id="compose-subject" tabindex="4" />
+                    </div>
+
+                    <div class="form-group">
+                        <roundcube:object name="composeattachments" id="compose-attachments" />
+                    </div>
+                </div>
+
+                <div class="compose-body">
+                    <roundcube:object name="composebody" id="composebody" form="form" tabindex="5" />
+                </div>
+
+                <div class="compose-buttons">
+                    <roundcube:button command="send" label="sendmessage" class="button send" tabindex="6" />
+                    <roundcube:button command="savedraft" label="savemessage" class="button draft" tabindex="7" />
+                    <roundcube:button command="cancel" label="cancel" class="button cancel" tabindex="8" />
+
+                    <roundcube:container name="composeoptions" id="compose-options" />
+                </div>
+            </roundcube:form>
+        </div>
+
+        <!-- Status bar -->
+        <div class="statusbar">
+            <roundcube:object name="message" id="message" />
+        </div>
+    </div>
+
+    <roundcube:object name="preloader" />
+</body>
+</html>

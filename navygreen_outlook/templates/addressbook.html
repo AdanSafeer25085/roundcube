@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="addressbook-view outlook-people">
+    <div class="app-container">
+        <!-- Top Navigation -->
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menu-toggle">
+                    <span class="hamburger"></span>
+                </button>
+                <div class="brand-logo">
+                    <h1>People</h1>
+                </div>
+            </div>
+
+            <div class="navbar-center">
+                <roundcube:object name="searchform" id="quicksearchbar" />
+            </div>
+
+            <div class="navbar-right">
+                <roundcube:object name="username" />
+                <roundcube:object name="logoutlink" class="logout-btn" />
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <button class="new-contact-btn">+ New Contact</button>
+                </div>
+                <div class="sidebar-content">
+                    <roundcube:object name="addressbookslist" id="directorylist" class="treelist" />
+                </div>
+            </nav>
+
+            <!-- Contact List -->
+            <div class="contact-list-panel">
+                <div class="panel-header">
+                    <div class="toolbar">
+                        <roundcube:object name="toolbar" id="contactstoolbar" />
+                    </div>
+                </div>
+
+                <div class="contact-list">
+                    <roundcube:object name="addresslist"
+                        id="contacts-table"
+                        class="records-table"
+                        cellspacing="0" />
+                </div>
+
+                <div class="listfooter">
+                    <roundcube:object name="recordscount" />
+                </div>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="contact-details-panel">
+                <roundcube:if condition="env:contact">
+                    <div class="contact-header">
+                        <roundcube:object name="contacthead" />
+                    </div>
+                    <div class="contact-content">
+                        <roundcube:object name="contactdetails" />
+                    </div>
+                </roundcube:if>
+            </div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

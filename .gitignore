@@ -1,0 +1,17 @@
+# Logs
+*.log
+ngrok.log
+
+# Node modules
+node_modules/
+
+# Vercel
+.vercel/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

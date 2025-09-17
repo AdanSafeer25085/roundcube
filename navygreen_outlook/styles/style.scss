@@ -1,0 +1,795 @@
+// NavyGreen Outlook Theme - Main Stylesheet
+// Color Palette (Outlook-inspired)
+$navy-darker: #0e1420;
+$navy-dark: #1b2631;
+$navy-medium: #2c3e50;
+$navy-light: #34495e;
+$green-dark: #1e8449;
+$green-medium: #27ae60;
+$green-light: #58d68d;
+$blue-accent: #3498db;
+$gray-darker: #1c1c1c;
+$gray-dark: #2c2c2c;
+$gray-medium: #5d6d7e;
+$gray-light: #85929e;
+$white: #ffffff;
+$off-white: #f8f9fa;
+$border-color: rgba(39, 174, 96, 0.2);
+
+// Typography (Outlook-style)
+$font-primary: 'Segoe UI', 'Arial', sans-serif;
+$font-mono: 'Courier New', 'Consolas', monospace;
+
+// Base styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $navy-darker;
+  color: $off-white;
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Main layout - Outlook ribbon style
+#layout {
+  min-height: 100vh;
+  background: $navy-darker;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header with ribbon-style navigation
+.header {
+  background: linear-gradient(180deg, $navy-dark 0%, $navy-darker 100%);
+  border-bottom: 2px solid $green-dark;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  .title-bar {
+    background-color: $navy-darker;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $border-color;
+
+    .logo {
+      font-size: 16px;
+      font-weight: 600;
+      color: $green-medium;
+      text-decoration: none;
+
+      &:hover {
+        color: $green-light;
+      }
+    }
+
+    .user-info {
+      color: $gray-light;
+      font-size: 12px;
+
+      .logout-button {
+        background: none;
+        border: 1px solid $border-color;
+        color: $gray-light;
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-size: 11px;
+        cursor: pointer;
+        margin-left: 8px;
+
+        &:hover {
+          background-color: rgba($green-dark, 0.2);
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .ribbon {
+    background: linear-gradient(180deg, $navy-medium 0%, $navy-dark 100%);
+    padding: 8px 16px;
+    display: flex;
+    gap: 4px;
+
+    .tab {
+      padding: 6px 12px;
+      color: $gray-light;
+      background: none;
+      border: none;
+      border-radius: 3px 3px 0 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+
+      &.active,
+      &:hover {
+        background-color: $navy-darker;
+        color: $white;
+      }
+    }
+  }
+}
+
+// Toolbar - Outlook-style command ribbon
+.toolbar {
+  background: linear-gradient(180deg, $navy-dark 0%, $navy-medium 100%);
+  border-bottom: 1px solid $border-color;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .button-group {
+    display: flex;
+    gap: 4px;
+    padding-right: 12px;
+    border-right: 1px solid $border-color;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  a.button {
+    background: linear-gradient(180deg, lighten($green-dark, 5%) 0%, $green-dark 100%);
+    color: $white;
+    padding: 6px 12px;
+    border: 1px solid darken($green-dark, 10%);
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: linear-gradient(180deg, lighten($green-medium, 5%) 0%, $green-medium 100%);
+      border-color: darken($green-medium, 10%);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: $gray-medium;
+      border-color: $gray-dark;
+
+      &:hover {
+        background: $gray-medium;
+      }
+    }
+
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .search-form {
+    margin-left: auto;
+
+    input {
+      padding: 4px 8px;
+      background-color: $navy-darker;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+      color: $off-white;
+      font-size: 12px;
+      width: 200px;
+
+      &:focus {
+        outline: none;
+        border-color: $green-medium;
+        background-color: lighten($navy-darker, 5%);
+      }
+    }
+  }
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 120px);
+}
+
+// Sidebar - Outlook navigation pane style
+.sidebar {
+  background: linear-gradient(180deg, $navy-dark 0%, $navy-darker 100%);
+  border-right: 2px solid $border-color;
+  width: 220px;
+  min-width: 220px;
+  padding: 16px 0;
+  overflow-y: auto;
+
+  .folder-section {
+    margin-bottom: 20px;
+
+    .section-title {
+      padding: 8px 16px 4px;
+      color: $gray-light;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .folderlist {
+    list-style: none;
+
+    li {
+      position: relative;
+
+      a {
+        color: $off-white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 6px 16px;
+        font-size: 13px;
+        transition: all 0.2s ease;
+        border-left: 3px solid transparent;
+
+        &:hover {
+          background: linear-gradient(90deg, transparent 0%, rgba($green-dark, 0.3) 100%);
+          border-left-color: $green-medium;
+        }
+
+        &.selected {
+          background: linear-gradient(90deg, rgba($green-dark, 0.4) 0%, rgba($green-dark, 0.1) 100%);
+          border-left-color: $green-light;
+          color: $white;
+          font-weight: 500;
+        }
+
+        .folder-icon {
+          width: 14px;
+          height: 14px;
+          margin-right: 8px;
+        }
+
+        .folder-name {
+          flex: 1;
+        }
+
+        .unreadcount {
+          background-color: $green-medium;
+          color: $white;
+          padding: 2px 6px;
+          border-radius: 8px;
+          font-size: 10px;
+          font-weight: bold;
+          min-width: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .quota-display {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    font-size: 11px;
+    color: $gray-light;
+  }
+}
+
+// Content area
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: $navy-darker;
+}
+
+// Message list - Outlook table style
+.messagelist {
+  flex: 1;
+  background-color: $navy-darker;
+  border-bottom: 1px solid $border-color;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+
+    thead {
+      background: linear-gradient(180deg, $navy-medium 0%, $navy-dark 100%);
+      border-bottom: 2px solid $border-color;
+
+      th {
+        padding: 8px 12px;
+        text-align: left;
+        color: $gray-light;
+        font-weight: 600;
+        font-size: 11px;
+        border-right: 1px solid $border-color;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($green-dark, 0.2);
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid rgba($gray-medium, 0.1);
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: linear-gradient(90deg, rgba($green-dark, 0.1) 0%, transparent 100%);
+        }
+
+        &.selected {
+          background: linear-gradient(90deg, rgba($blue-accent, 0.3) 0%, rgba($blue-accent, 0.1) 100%);
+          border-left: 3px solid $blue-accent;
+        }
+
+        &.unread {
+          font-weight: 600;
+          background-color: rgba($navy-light, 0.3);
+
+          td {
+            color: $white;
+          }
+        }
+
+        td {
+          padding: 8px 12px;
+          color: $off-white;
+          border-right: 1px solid rgba($border-color, 0.5);
+          vertical-align: middle;
+
+          &:last-child {
+            border-right: none;
+          }
+
+          &.subject {
+            font-weight: 500;
+
+            a {
+              color: inherit;
+              text-decoration: none;
+
+              &:hover {
+                color: $green-light;
+              }
+            }
+          }
+
+          &.from {
+            font-weight: 500;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          &.date {
+            color: $gray-light;
+            font-size: 11px;
+            white-space: nowrap;
+          }
+
+          &.flags {
+            text-align: center;
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Message view - Outlook reading pane
+.messageview {
+  background-color: $navy-darker;
+  height: 300px;
+  min-height: 300px;
+  padding: 16px;
+  overflow-y: auto;
+  border-top: 2px solid $border-color;
+
+  .message-header {
+    background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    .subject {
+      font-size: 18px;
+      font-weight: 600;
+      color: $white;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .header-info {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 12px;
+      font-size: 12px;
+
+      .label {
+        color: $gray-light;
+        font-weight: 600;
+      }
+
+      .value {
+        color: $off-white;
+      }
+    }
+  }
+
+  .message-body {
+    background-color: $white;
+    color: $gray-darker;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    min-height: 200px;
+    font-size: 13px;
+    line-height: 1.6;
+
+    pre {
+      font-family: $font-mono;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+}
+
+// Compose form - Outlook compose style
+.compose-form {
+  background-color: $navy-darker;
+  padding: 16px;
+  height: 100vh;
+  overflow-y: auto;
+
+  .compose-headers {
+    background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        width: 60px;
+        color: $gray-light;
+        font-weight: 600;
+        font-size: 12px;
+        text-align: right;
+        margin-right: 12px;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        flex: 1;
+        padding: 6px 8px;
+        background-color: $navy-darker;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        color: $off-white;
+        font-size: 12px;
+
+        &:focus {
+          outline: none;
+          border-color: $green-medium;
+          background-color: lighten($navy-darker, 3%);
+        }
+      }
+    }
+  }
+
+  .compose-body {
+    margin-bottom: 16px;
+
+    textarea {
+      width: 100%;
+      height: 400px;
+      padding: 12px;
+      background-color: $white;
+      color: $gray-darker;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-family: $font-primary;
+      font-size: 13px;
+      line-height: 1.6;
+      resize: vertical;
+
+      &:focus {
+        outline: none;
+        border-color: $green-medium;
+      }
+    }
+  }
+
+  .compose-buttons {
+    display: flex;
+    gap: 8px;
+
+    button {
+      padding: 8px 16px;
+      border: 1px solid;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &.send {
+        background: linear-gradient(180deg, lighten($green-dark, 5%) 0%, $green-dark 100%);
+        border-color: darken($green-dark, 10%);
+        color: $white;
+
+        &:hover {
+          background: linear-gradient(180deg, lighten($green-medium, 5%) 0%, $green-medium 100%);
+        }
+      }
+
+      &.draft {
+        background: linear-gradient(180deg, lighten($gray-medium, 10%) 0%, $gray-medium 100%);
+        border-color: darken($gray-medium, 10%);
+        color: $white;
+
+        &:hover {
+          background: linear-gradient(180deg, lighten($gray-light, 10%) 0%, $gray-light 100%);
+        }
+      }
+
+      &.cancel {
+        background: transparent;
+        border-color: $border-color;
+        color: $gray-light;
+
+        &:hover {
+          background-color: rgba($gray-medium, 0.2);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Login form - Outlook login style
+.login-form {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $navy-darker 0%, $navy-dark 50%, $navy-medium 100%);
+
+  .login-box {
+    background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+    border: 2px solid $border-color;
+    border-radius: 6px;
+    padding: 32px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+    .logo-section {
+      text-align: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $border-color;
+
+      h1 {
+        color: $green-medium;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .tagline {
+        color: $gray-light;
+        font-size: 12px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        color: $gray-light;
+        margin-bottom: 4px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px 10px;
+        background-color: $navy-darker;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        color: $off-white;
+        font-size: 13px;
+
+        &:focus {
+          outline: none;
+          border-color: $green-medium;
+          background-color: lighten($navy-darker, 3%);
+          box-shadow: 0 0 0 2px rgba($green-medium, 0.2);
+        }
+      }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(180deg, lighten($green-dark, 5%) 0%, $green-dark 100%);
+      border: 1px solid darken($green-dark, 10%);
+      border-radius: 3px;
+      color: $white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: linear-gradient(180deg, lighten($green-medium, 5%) 0%, $green-medium 100%);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    .additional-options {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11px;
+
+      a {
+        color: $green-light;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    max-height: 200px;
+    border-right: none;
+    border-bottom: 2px solid $border-color;
+  }
+
+  .messagelist {
+    height: 300px;
+  }
+
+  .messageview {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+
+    .button-group {
+      margin-bottom: 4px;
+    }
+
+    .search-form {
+      margin-left: 0;
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  .compose-form {
+    .compose-headers {
+      .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        label {
+          width: auto;
+          text-align: left;
+          margin-right: 0;
+          margin-bottom: 4px;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid $green-medium;
+  outline-offset: 1px;
+}
+
+// Loading states
+.loading {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba($green-medium, 0.3);
+  border-radius: 50%;
+  border-top-color: $green-medium;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Status bar
+.statusbar {
+  background: linear-gradient(180deg, $navy-dark 0%, $navy-darker 100%);
+  border-top: 1px solid $border-color;
+  padding: 6px 16px;
+  font-size: 11px;
+  color: $gray-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="settings-view outlook-settings">
+    <div class="app-container">
+        <!-- Top Navigation -->
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menu-toggle">
+                    <span class="hamburger"></span>
+                </button>
+                <div class="brand-logo">
+                    <h1>Settings</h1>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <roundcube:object name="username" />
+                <roundcube:object name="logoutlink" class="logout-btn" />
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <!-- Settings Navigation -->
+            <nav class="sidebar" id="sidebar">
+                <div class="settings-navigation">
+                    <roundcube:object name="sectionslist" id="sections-table" class="treelist" />
+                </div>
+            </nav>
+
+            <!-- Settings Content -->
+            <div class="settings-main-panel">
+                <div class="panel-header">
+                    <h2 class="settings-title">
+                        <roundcube:object name="sectiontitle" />
+                    </h2>
+                </div>
+
+                <div class="settings-form-container">
+                    <roundcube:object name="settingsform" />
+                </div>
+
+                <div class="panel-footer">
+                    <div class="action-buttons">
+                        <button type="submit" class="btn-primary">Save Settings</button>
+                        <button type="reset" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

@@ -1,0 +1,485 @@
+// NavyGreen Gmail Theme - Main Stylesheet
+// Color Palette
+$navy-dark: #1a2332;
+$navy-medium: #2c3e50;
+$navy-light: #34495e;
+$green-dark: #27ae60;
+$green-medium: #2ecc71;
+$green-light: #52e3a0;
+$gray-dark: #2c2c2c;
+$gray-medium: #4a4a4a;
+$gray-light: #7f8c8d;
+$white: #ffffff;
+$off-white: #ecf0f1;
+
+// Typography
+$font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-mono: 'Monaco', 'Consolas', 'Courier New', monospace;
+
+// Base styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $navy-dark;
+  color: $off-white;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Main layout
+#layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+}
+
+// Header
+.header {
+  background-color: $navy-dark;
+  border-bottom: 1px solid rgba($green-dark, 0.3);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: $green-medium;
+    text-decoration: none;
+
+    &:hover {
+      color: $green-light;
+    }
+  }
+}
+
+// Toolbar
+.toolbar {
+  background-color: $navy-medium;
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba($green-dark, 0.2);
+
+  a.button {
+    background-color: $green-dark;
+    color: $white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $green-medium;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Sidebar (Folder list)
+.sidebar {
+  background-color: $navy-dark;
+  border-right: 1px solid rgba($green-dark, 0.2);
+  padding: 20px;
+  min-width: 200px;
+
+  .folderlist {
+    list-style: none;
+
+    li {
+      margin-bottom: 4px;
+
+      a {
+        color: $off-white;
+        text-decoration: none;
+        display: block;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba($green-dark, 0.2);
+        }
+
+        &.selected {
+          background-color: $green-dark;
+          color: $white;
+          font-weight: 500;
+        }
+      }
+
+      .unreadcount {
+        float: right;
+        background-color: $green-medium;
+        color: $white;
+        padding: 2px 6px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Message list
+.messagelist {
+  background-color: $navy-medium;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background-color: $navy-dark;
+
+      th {
+        padding: 12px;
+        text-align: left;
+        color: $gray-light;
+        font-weight: 500;
+        border-bottom: 2px solid rgba($green-dark, 0.3);
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid rgba($gray-medium, 0.2);
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: rgba($green-dark, 0.1);
+        }
+
+        &.selected {
+          background-color: rgba($green-dark, 0.3);
+        }
+
+        &.unread {
+          font-weight: 600;
+
+          td {
+            color: $white;
+          }
+        }
+
+        td {
+          padding: 12px;
+          color: $off-white;
+
+          &.subject {
+            a {
+              color: inherit;
+              text-decoration: none;
+
+              &:hover {
+                color: $green-light;
+              }
+            }
+          }
+
+          &.date {
+            color: $gray-light;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Message view
+.messageview {
+  background-color: $navy-medium;
+  padding: 20px;
+
+  .message-header {
+    background-color: $navy-dark;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    .subject {
+      font-size: 24px;
+      font-weight: 500;
+      color: $white;
+      margin-bottom: 12px;
+    }
+
+    .from, .to, .date {
+      color: $gray-light;
+      margin-bottom: 8px;
+
+      span {
+        color: $off-white;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .message-body {
+    background-color: $white;
+    color: $gray-dark;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 300px;
+
+    pre {
+      font-family: $font-mono;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+}
+
+// Compose form
+.compose-form {
+  background-color: $navy-medium;
+  padding: 20px;
+
+  .compose-headers {
+    background-color: $navy-dark;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    .form-group {
+      margin-bottom: 16px;
+
+      label {
+        display: inline-block;
+        width: 80px;
+        color: $gray-light;
+        font-weight: 500;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        width: calc(100% - 90px);
+        padding: 8px 12px;
+        background-color: $navy-medium;
+        border: 1px solid rgba($green-dark, 0.3);
+        border-radius: 4px;
+        color: $off-white;
+
+        &:focus {
+          outline: none;
+          border-color: $green-medium;
+          box-shadow: 0 0 0 2px rgba($green-medium, 0.2);
+        }
+      }
+    }
+  }
+
+  .compose-body {
+    textarea {
+      width: 100%;
+      min-height: 400px;
+      padding: 16px;
+      background-color: $white;
+      color: $gray-dark;
+      border: 1px solid rgba($green-dark, 0.3);
+      border-radius: 8px;
+      font-family: $font-primary;
+      font-size: 14px;
+      resize: vertical;
+
+      &:focus {
+        outline: none;
+        border-color: $green-medium;
+        box-shadow: 0 0 0 2px rgba($green-medium, 0.2);
+      }
+    }
+  }
+
+  .compose-buttons {
+    margin-top: 20px;
+
+    button {
+      background-color: $green-dark;
+      color: $white;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $green-medium;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &.cancel {
+        background-color: $gray-medium;
+
+        &:hover {
+          background-color: $gray-light;
+        }
+      }
+    }
+  }
+}
+
+// Login form
+.login-form {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+
+  .login-box {
+    background-color: $navy-dark;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+
+    h1 {
+      color: $green-medium;
+      font-size: 28px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        color: $gray-light;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        background-color: $navy-medium;
+        border: 1px solid rgba($green-dark, 0.3);
+        border-radius: 4px;
+        color: $off-white;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+          border-color: $green-medium;
+          box-shadow: 0 0 0 2px rgba($green-medium, 0.2);
+        }
+      }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: $green-dark;
+      color: $white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $green-medium;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+
+    &.mobile-open {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1000;
+      width: 280px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .messagelist table {
+    font-size: 12px;
+
+    td, th {
+      padding: 8px;
+    }
+  }
+
+  .compose-form {
+    .compose-headers {
+      .form-group {
+        label {
+          display: block;
+          width: 100%;
+          margin-bottom: 4px;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Focus styles for keyboard navigation
+*:focus-visible {
+  outline: 2px solid $green-medium;
+  outline-offset: 2px;
+}
+
+// Loading spinner
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba($green-medium, 0.3);
+  border-radius: 50%;
+  border-top-color: $green-medium;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

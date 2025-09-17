@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="compose-view outlook-compose">
+    <div class="compose-container">
+        <!-- Compose Header -->
+        <header class="compose-header">
+            <div class="header-left">
+                <h2 class="compose-title">New Message</h2>
+            </div>
+
+            <div class="header-actions">
+                <roundcube:object name="composeoptionsform" id="compose-options" />
+                <button class="btn-send" onclick="return rcmail.command('send', '', this)">
+                    Send
+                </button>
+                <button class="btn-save" onclick="return rcmail.command('savedraft', '', this)">
+                    Save Draft
+                </button>
+                <button class="btn-cancel" onclick="return rcmail.command('cancel-compose', '', this)">
+                    Cancel
+                </button>
+            </div>
+        </header>
+
+        <!-- Compose Form -->
+        <div class="compose-content">
+            <roundcube:object name="composeform" id="compose-form" form="form">
+                <div class="compose-fields">
+                    <div class="field-group">
+                        <label class="field-label">From:</label>
+                        <div class="field-input">
+                            <roundcube:object name="composeheaders" part="from" />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">To:</label>
+                        <div class="field-input">
+                            <roundcube:object name="composeheaders" part="to" />
+                        </div>
+                    </div>
+
+                    <div class="field-group cc-field" id="compose-cc">
+                        <label class="field-label">CC:</label>
+                        <div class="field-input">
+                            <roundcube:object name="composeheaders" part="cc" />
+                        </div>
+                    </div>
+
+                    <div class="field-group bcc-field" id="compose-bcc">
+                        <label class="field-label">BCC:</label>
+                        <div class="field-input">
+                            <roundcube:object name="composeheaders" part="bcc" />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">Subject:</label>
+                        <div class="field-input">
+                            <roundcube:object name="composeheaders" part="subject" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compose Toolbar -->
+                <div class="compose-toolbar">
+                    <roundcube:object name="toolbar" id="compose-toolbar" />
+                </div>
+
+                <!-- Message Body -->
+                <div class="compose-body">
+                    <roundcube:object name="composebody" id="composebody" />
+                </div>
+
+                <!-- Attachments -->
+                <div class="compose-attachments">
+                    <roundcube:object name="composeattachment" id="attachment-list" />
+                </div>
+            </roundcube:object>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

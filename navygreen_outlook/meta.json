@@ -1,0 +1,18 @@
+{
+  "name": "NavyGreen Outlook",
+  "author": "Custom Development",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Professional dark theme inspired by Outlook with navy blue and deep green accents",
+  "config": {
+    "extends": "elastic",
+    "dark_mode_support": true,
+    "layout": "desktop",
+    "thumbnail": "thumbnail.png"
+  },
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1.0",
+    "mobile_compatible": true,
+    "min_roundcube_version": "1.6.0"
+  }
+}

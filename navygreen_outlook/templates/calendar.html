@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="calendar-view outlook-calendar">
+    <div class="app-container">
+        <!-- Top Navigation -->
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menu-toggle">
+                    <span class="hamburger"></span>
+                </button>
+                <div class="brand-logo">
+                    <h1>Calendar</h1>
+                </div>
+            </div>
+
+            <div class="navbar-center">
+                <div class="calendar-controls">
+                    <button class="nav-btn today-btn">Today</button>
+                    <div class="date-navigation">
+                        <button class="nav-btn prev-btn">‹</button>
+                        <span class="current-date"></span>
+                        <button class="nav-btn next-btn">›</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <div class="view-options">
+                    <select class="view-selector">
+                        <option value="month">Month</option>
+                        <option value="week">Week</option>
+                        <option value="day">Day</option>
+                        <option value="agenda">Agenda</option>
+                    </select>
+                </div>
+                <roundcube:object name="username" />
+                <roundcube:object name="logoutlink" class="logout-btn" />
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <button class="new-event-btn">+ New Event</button>
+                </div>
+                <div class="sidebar-content">
+                    <div class="calendars-section">
+                        <h3>My Calendars</h3>
+                        <roundcube:object name="calendarslist" id="calendarslist" class="treelist" />
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Calendar View -->
+            <div class="calendar-main-panel">
+                <div class="panel-header">
+                    <div class="toolbar">
+                        <roundcube:object name="toolbar" id="calendartoolbar" />
+                    </div>
+                </div>
+
+                <div class="calendar-view-container">
+                    <roundcube:object name="calendar" id="calendar" />
+                </div>
+            </div>
+
+            <!-- Event Details -->
+            <div class="event-details-panel">
+                <roundcube:if condition="env:event">
+                    <div class="event-header">
+                        <h3>Event Details</h3>
+                    </div>
+                    <div class="event-content">
+                        <roundcube:object name="eventdetails" />
+                    </div>
+                </roundcube:if>
+            </div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

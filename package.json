@@ -1,0 +1,23 @@
+{
+  "name": "navygreen-roundcube-skins",
+  "version": "1.0.0",
+  "description": "Professional dark-themed Roundcube skins with navy blue and deep green accents",
+  "main": "demo.html",
+  "scripts": {
+    "build": "echo 'Static files ready'",
+    "dev": "python3 -m http.server 3000",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "roundcube",
+    "skin",
+    "theme",
+    "dark",
+    "navy",
+    "green",
+    "responsive"
+  ],
+  "author": "Custom Development",
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/navygreen-roundcube-skins"
+}

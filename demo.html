@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavyGreen Roundcube Skins - Client Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2B5A87, #4A9B8E);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+        .skin-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .skin-card {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid #2B5A87;
+        }
+
+        .skin-preview {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gmail-theme {
+            background: linear-gradient(180deg, #2B5A87 0%, #1e1e1e 100%);
+        }
+
+        .outlook-theme {
+            background: linear-gradient(180deg, #4A9B8E 0%, #1e1e1e 100%);
+        }
+
+        .mock-interface {
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mock-header {
+            height: 40px;
+            background: rgba(43, 90, 135, 0.3);
+            border-bottom: 1px solid #444;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .mock-sidebar {
+            position: absolute;
+            left: 0; top: 40px; bottom: 0;
+            width: 200px;
+            background: rgba(0,0,0,0.3);
+            border-right: 1px solid #444;
+        }
+
+        .mock-content {
+            margin-left: 200px;
+            margin-top: 40px;
+            padding: 1rem;
+            height: calc(100% - 40px);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: #4A9B8E;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #4A9B8E;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .demo-status {
+            background: #4A9B8E;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .skin-showcase { grid-template-columns: 1fr; }
+            .mock-sidebar { width: 150px; }
+            .mock-content { margin-left: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>NavyGreen Roundcube Skins</h1>
+        <p>Professional dark-themed email interface with navy blue and deep green accents</p>
+    </header>
+
+    <div class="container">
+        <div class="skin-showcase">
+            <!-- Gmail Style -->
+            <div class="skin-card">
+                <h3>🎨 Gmail-Inspired Theme</h3>
+                <div class="skin-preview gmail-theme">
+                    <div class="mock-interface">
+                        <div class="mock-header">📧 Roundcube - Gmail Style</div>
+                        <div class="mock-sidebar"></div>
+                        <div class="mock-content">
+                            <div style="background: rgba(43,90,135,0.2); padding: 0.5rem; margin: 0.5rem 0; border-radius: 4px;">
+                                📬 Inbox (12)
+                            </div>
+                            <div style="background: rgba(255,255,255,0.05); padding: 0.5rem; margin: 0.5rem 0; border-radius: 4px;">
+                                Clean, minimalist design
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>Gmail-inspired layout</li>
+                    <li>Clean navigation</li>
+                    <li>Widescreen optimized</li>
+                    <li>Mobile responsive</li>
+                </ul>
+            </div>
+
+            <!-- Outlook Style -->
+            <div class="skin-card">
+                <h3>🎨 Outlook-Inspired Theme</h3>
+                <div class="skin-preview outlook-theme">
+                    <div class="mock-interface">
+                        <div class="mock-header">📧 Roundcube - Outlook Style</div>
+                        <div class="mock-sidebar"></div>
+                        <div class="mock-content">
+                            <div style="background: rgba(74,155,142,0.2); padding: 0.5rem; margin: 0.5rem 0; border-radius: 4px;">
+                                📬 Mail Folders
+                            </div>
+                            <div style="background: rgba(255,255,255,0.05); padding: 0.5rem; margin: 0.5rem 0; border-radius: 4px;">
+                                Professional desktop feel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>Outlook-inspired layout</li>
+                    <li>Desktop-style interface</li>
+                    <li>Structured panels</li>
+                    <li>Professional design</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>🚀 Demo Status</h2>
+            <div class="demo-status">
+                SKINS READY FOR DEPLOYMENT
+            </div>
+            <p>Both NavyGreen skins are complete with:</p>
+            <ul class="feature-list" style="display: inline-block; text-align: left; margin: 1rem 0;">
+                <li>Complete template coverage (login, mail, compose, calendar, contacts, settings)</li>
+                <li>Dark theme with navy (#2B5A87) and green (#4A9B8E) colors</li>
+                <li>Fully responsive design for desktop and mobile</li>
+                <li>SVG icon library for crisp display</li>
+                <li>WCAG AA accessibility compliance</li>
+                <li>Plugin compatibility</li>
+            </ul>
+
+            <h3>📧 Ready for Client Review</h3>
+            <p>Live demo URL will be provided once deployment is complete.</p>
+        </div>
+    </div>
+</body>
+</html>

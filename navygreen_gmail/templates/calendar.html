@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="calendar-view gmail-calendar">
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button class="hamburger-menu" id="menu-toggle">☰</button>
+                <h1 class="app-title">Calendar</h1>
+            </div>
+            <div class="header-center">
+                <div class="calendar-navigation">
+                    <button class="nav-btn prev-btn">‹</button>
+                    <span class="current-period"></span>
+                    <button class="nav-btn next-btn">›</button>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="view-switcher">
+                    <button class="view-btn active" data-view="month">Month</button>
+                    <button class="view-btn" data-view="week">Week</button>
+                    <button class="view-btn" data-view="day">Day</button>
+                </div>
+                <roundcube:object name="username" />
+                <roundcube:object name="logoutlink" />
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <button class="create-event-btn">+ Create Event</button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>My Calendars</h3>
+                    <roundcube:object name="calendarslist" id="calendarslist" class="treelist" />
+                </div>
+            </aside>
+
+            <!-- Calendar View -->
+            <div class="calendar-panel">
+                <div class="calendar-toolbar">
+                    <roundcube:object name="toolbar" id="calendartoolbar" />
+                </div>
+
+                <div class="calendar-container">
+                    <roundcube:object name="calendar" id="calendar" />
+                </div>
+            </div>
+
+            <!-- Event Details -->
+            <div class="event-details-panel">
+                <roundcube:if condition="env:event">
+                    <div class="event-info">
+                        <roundcube:object name="eventdetails" />
+                    </div>
+                </roundcube:if>
+            </div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>

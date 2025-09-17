@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="<roundcube:exp expression="sess_lang" />">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><roundcube:object name="pagetitle" /></title>
+    <roundcube:include file="includes/styles.html" />
+</head>
+<body class="settings-view gmail-settings">
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button class="hamburger-menu" id="menu-toggle">☰</button>
+                <h1 class="app-title">Settings</h1>
+            </div>
+            <div class="header-right">
+                <roundcube:object name="username" />
+                <roundcube:object name="logoutlink" />
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Settings Navigation -->
+            <aside class="sidebar">
+                <nav class="settings-nav">
+                    <roundcube:object name="sectionslist" id="sections-table" class="treelist" />
+                </nav>
+            </aside>
+
+            <!-- Settings Content -->
+            <div class="settings-panel">
+                <div class="settings-header">
+                    <h2 class="section-title">
+                        <roundcube:object name="sectiontitle" />
+                    </h2>
+                </div>
+
+                <div class="settings-content">
+                    <roundcube:object name="settingsform" />
+                </div>
+
+                <div class="settings-footer">
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                        <button type="reset" class="btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <roundcube:include file="includes/scripts.html" />
+</body>
+</html>
