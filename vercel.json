@@ -1,29 +1,10 @@
 {
   "version": 2,
   "name": "navygreen-roundcube-demo",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/demo.html"
-    },
-    {
-      "src": "/demo",
-      "dest": "/demo.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
+      "source": "/",
+      "destination": "/index.html"
     }
   ]
 }
