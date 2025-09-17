@@ -1,6 +1,11 @@
 {
   "version": 2,
   "name": "navygreen-roundcube-demo",
+  "outputDirectory": ".",
+  "buildCommand": "",
+  "devCommand": "",
+  "installCommand": "",
+  "framework": null,
   "rewrites": [
     {
       "source": "/",

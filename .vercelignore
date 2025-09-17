@@ -1,0 +1,8 @@
+# Ignore unnecessary files
+.git
+.gitignore
+*.sh
+node_modules
+.DS_Store
+*.log
+.vercel
